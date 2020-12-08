@@ -1,0 +1,18 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../:\Users\xtree\IdeaProjects\web_lab3\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+/.idea/
+/lib/
+/target/
+pom.xml
+web_lab3.iml
+/src/test/
+/src/main/resources
+/src/main/
+
