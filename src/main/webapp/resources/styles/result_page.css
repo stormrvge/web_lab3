@@ -1,0 +1,28 @@
+.result_text {
+    text-align: center;
+    font-size: 22px;
+}
+
+.result_table {
+    text-align: center;
+    max-width: 80%;
+    min-width: 30%;
+    margin: 0 auto;
+}
+
+.result_nav_button input {
+    font-weight: 500;
+    font-size: 13px;
+    color: #c5c5c5;
+    width: 180px;
+    height: 35px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #383838;
+}
+
+.result_nav_button {
+    position: absolute;
+    left: 1%;
+    top: 15%;
+}

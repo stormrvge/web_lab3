@@ -1,0 +1,116 @@
+$body_bgcolor: #c5c5c5
+
+$header_bgcolor: #383838
+$header_fontsize: 10px
+$header_textcolor: #e0e0e0
+
+$page_font: 'Roboto', monospace
+
+$form_fontsize: 15px
+$button_color: #f53858
+
+%reset-this
+  all: initial
+  all: unset
+
+body
+  background-color: $body_bgcolor
+  font-family: $page_font
+  min-width: 520px
+  margin: 0
+
+.header
+  text-transform: uppercase
+  padding: 10px
+  font-size: $header_fontsize
+  background-color: $header_bgcolor
+  color: $header_textcolor
+  height: 80px
+  img
+    float: left
+    width: 65px
+    height: 65px
+    margin-left: 10px
+    margin-top: 5px
+
+#header_text
+  margin-left: 30px
+  text-align: left
+  float: left
+
+input
+  outline: none
+  text-align: center
+
+.lab_text
+  text-align: center
+  font-size: 20px
+
+.info
+  margin-left: 5%
+  box-shadow: 1px 1px 4px rgb(160 160 160)
+  float: left
+  width: 350px
+  height: 350px
+  img
+    width: 350px
+    height: 350px
+
+.form
+  box-shadow: 1px 1px 4px rgb(160 160 160)
+  float: right
+  margin-right: 5%
+  width: 450px
+  height: 230px
+  text-align: center
+  font-size: $form_fontsize
+  .x
+    margin-left: 40px
+    float: left
+    width: 173px
+    button
+      width: 50px
+      height: 30px
+  .y
+    float: left
+    input
+      width: 190px
+  .r
+    float: left
+    width: 220px
+    p
+      height: 0
+    input
+      width: 50px
+      height: 50px
+
+.form_buttons
+  width: 500px
+
+input[type=submit], input[type=reset]
+  font-weight: 500
+  font-size: 13px
+  color: white
+  width: 120px
+  height: 25px
+  border: 0
+  border-radius: 5px
+  margin-left: 70px
+  background-color: $button_color
+
+input[type=submit]:hover, input[type=reset]:hover, .link_button:hover
+  background-color: #da324e
+
+.activeButton
+  @extend %reset-this
+  border-radius: 5px
+  background-color: $button_color
+
+
+
+
+
+
+
+
+

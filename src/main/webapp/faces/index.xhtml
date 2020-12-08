@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+    <title>Index page</title>
+    <h:outputStylesheet name="styles/main.css"/>
+</h:head>
+
+<h:body>
+    <ui:include src="header.xhtml"/>
+
+    <p class="lab_text">
+        Лабораторная работа №3.
+    </p>
+
+    <div class="info" id="info">
+        <!-- <object class="svg_area" type="image/svg+xml" data="../img/area.svg"/> -->
+
+    </div>
+
+    <div class="form">
+        <h:form id="formId">
+            <div class="x">
+                <p>X:</p>
+                <p:commandButton styleClass="xButton" value="-2.0" action="#{xCommandButton.setX(-2.0)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="-1.5" action="#{xCommandButton.setX(-1.5)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="-1.0" action="#{xCommandButton.setX(-1.0)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="-0.5" action="#{xCommandButton.setX(-0.5)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="0" action="#{xCommandButton.setX(0)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="0.5" action="#{xCommandButton.setX(0.5)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="1.0" action="#{xCommandButton.setX(1.0)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="1.5" action="#{xCommandButton.setX(1.5)}" onclick="buttonColor(this)"/>
+                <p:commandButton styleClass="xButton" value="2.0" action="#{xCommandButton.setX(2.0)}" onclick="buttonColor(this)"/>
+            </div>
+
+            <div class="y">
+                <p>Y:</p>
+                <p:inputText id="yInput" value="#{yInputText.value}" validatorMessage="Wrong Y" required="true"
+                             size="15" a:placeholder="Enter Y value">
+                    <f:validateDoubleRange minimum="0" maximum="5"/> </p:inputText>
+            </div>
+
+            <div class="r">
+                <p>R:</p>
+                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                    <p:selectOneRadio id="r_radio" onclick="svg_draw(this)" value="#{rRadioButton.selectedRadio}" unselectable="false" required="true">
+                        <f:selectItem itemLabel="1" itemValue="1" />
+                        <f:selectItem itemLabel="2" itemValue="2" />
+                        <f:selectItem itemLabel="3" itemValue="3" />
+                        <f:selectItem itemLabel="4" itemValue="4" />
+                        <f:selectItem itemLabel="5" itemValue="5" />
+                    </p:selectOneRadio>
+                </h:panelGrid>
+            </div>
+
+            <div class="form_buttons">
+                <h:commandButton id="submit_button" value="submit"  onclick="return validateForm()"
+                                 action="#{commandButtons.submit}">
+                    <f:ajax execute="formId" render="main_table"/>
+                </h:commandButton> <!--  -->
+                <h:commandButton id="clear_button" type="reset" value="reset" onclick="return clearButtons()" />
+            </div>
+        </h:form>
+    </div>
+
+    <div class="table">
+        <p:dataTable id="main_table" var="coordinate" value="#{coordinatesList.lastCoordinatesList}">
+            <p:column headerText="X">
+                <h:outputText value="#{coordinate.x}" />
+            </p:column>
+
+            <p:column headerText="Y">
+                <h:outputText value="#{coordinate.y}" />
+            </p:column>
+
+            <p:column headerText="R">
+                <h:outputText value="#{coordinate.r}" />
+            </p:column>
+
+            <p:column headerText="Hit">
+                <h:outputText value="false"/>
+            </p:column>
+
+            <p:column headerText="Time">
+                <h:outputText value="#{coordinate.date}" />
+            </p:column>
+        </p:dataTable>
+    </div>
+
+    <div class="nav_to_result">
+        <input type="button" value="Go to results" onclick="window.location.href='faces/response.xhtml'"/>
+    </div>
+
+    <div class="validator_message">
+        <h:message for="yInput"/>
+    </div>
+
+
+</h:body>
+<h:outputScript name="js/form_controller.js"/>
+<h:outputScript name="js/svg_controller.js"/>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Start page</title>
+    <h:outputStylesheet name="styles/main.css"/>
+    <h:outputStylesheet name="styles/start_page.css"/>
+</h:head>
+
+
+<h:body>
+    <ui:include src="header.xhtml"/>
+
+    <div class="clock">
+        <!--
+        <p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="client" syncInterval="11000"/>
+
+        <p:clock displayMode="analog" autoSync="false" id="analog_clock"/>
+        -->
+
+
+        <div id="clock" class="clock"></div>
+    </div>
+
+    <div class="nav_to_index">
+        <input type="button" value="Go to main page" onclick="window.location.href='faces/index.xhtml'"/>
+    </div>
+</h:body>
+
+<!--
+<script type="text/javascript">     //SCRIPT FOR 11 SEC UPDATE CLOCK
+    PrimeFaces.getWidgetById('analog_clock').interval = 1000;
+</script>
+-->
+
+<h:outputScript name="js/clock.js"/>
+</html>

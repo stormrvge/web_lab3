@@ -1,0 +1,27 @@
+.clock {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #383838;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+
+.nav_to_index {
+    position: absolute;
+    top: 60%;
+    left: 37%;
+}
+
+.nav_to_index input {
+    font-weight: 500;
+    font-size: 13px;
+    color: #c5c5c5;
+    width: 180px;
+    height: 35px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #383838;
+}
