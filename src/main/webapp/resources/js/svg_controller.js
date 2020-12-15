@@ -158,26 +158,10 @@ function svg_init(value) {
         text.push(textCreate(240, 192, verTextClassName, 1));
 
         let lines = [];
-        lines.push(lineCreate(37.5, 37.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(75, 75, 215, 235, horLineClassName));
-        lines.push(lineCreate(112.5, 112.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(150, 150, 215, 235, horLineClassName));
-        lines.push(lineCreate(187.5, 187.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(262.5, 262.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(300, 300, 215, 235, horLineClassName));
-        lines.push(lineCreate(337.5, 337.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(375, 375, 215, 235, horLineClassName));
-        lines.push(lineCreate(412.5, 412.5, 215, 235, horLineClassName));
-        lines.push(lineCreate(215, 235, 37.5, 37.5, horLineClassName));
-        lines.push(lineCreate(215, 235, 75, 75, horLineClassName));
-        lines.push(lineCreate(215, 235, 112.5, 112.5, horLineClassName));
-        lines.push(lineCreate(215, 235, 150, 150, horLineClassName));
-        lines.push(lineCreate(215, 235, 187.5, 187.5, horLineClassName));
-        lines.push(lineCreate(215, 235, 262.5, 262.5, horLineClassName));
-        lines.push(lineCreate(215, 235, 300, 300, horLineClassName));
-        lines.push(lineCreate(215, 235, 337.5, 337.5, horLineClassName));
-        lines.push(lineCreate(215, 235, 375, 375, horLineClassName));
-        lines.push(lineCreate(215, 235, 412.5, 412.5, horLineClassName));
+        for (let i = 37.5; i <= 412.5; i += 37.5) {
+            lines.push(lineCreate(i, i, 215, 235, verLineClassName));
+            lines.push(lineCreate(215, 235, i, i, verLineClassName));
+        }
 
         for (let i = 0; i < text.length; i++) {
             svg.appendChild(text[i]);
