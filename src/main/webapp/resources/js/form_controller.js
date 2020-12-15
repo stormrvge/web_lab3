@@ -1,4 +1,5 @@
 let isXActive = true;
+clearButtons();
 //document.getElementById("formId:yInput").value = null;
 
 function buttonColor(input) {

@@ -12,8 +12,6 @@ import java.util.LinkedList;
 public class CoordinatesList implements Serializable {
     private ArrayList<CoordinatesEntity> coordinateList = new ArrayList<>();
     private LinkedList<CoordinatesEntity> lastCoordinatesList = new LinkedList<>();
-    //TO DO ARRAYLIST FOR LAST 3 COORDINATES
-
 
     @PostConstruct
     private void postConstruct() {
@@ -24,7 +22,7 @@ public class CoordinatesList implements Serializable {
 
     public void addToList(CoordinatesEntity coordinatesEntity) {
         coordinateList.add(coordinatesEntity);
-        lastCoordinatesList.removeFirst();
+        if (lastCoordinatesList.size() >= 3) lastCoordinatesList.removeFirst();
         lastCoordinatesList.addLast(coordinatesEntity);
     }
 
