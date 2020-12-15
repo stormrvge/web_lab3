@@ -5,6 +5,8 @@ let triangle = null;
 let circle = null;
 let square = null;
 
+svg_init("init");
+
 function svg_init(value) {
     $(svg).empty();
 
@@ -133,133 +135,90 @@ function svg_init(value) {
     svg.appendChild(arrow4);
 
     if (value !== "init") {
-        let text1 = textCreate(35, 250, horTextClassName, -5);
-        let text2 = textCreate(73, 250, horTextClassName, -4);
-        let text3 = textCreate(110, 250, horTextClassName, -3);
-        let text4 = textCreate(148, 250, horTextClassName, -2);
-        let text5 = textCreate(185, 250, horTextClassName, -1);
-        let text6 = textCreate(260, 250, horTextClassName, 1);
-        let text7 = textCreate(298, 250, horTextClassName, 2);
-        let text8 = textCreate(335, 250, horTextClassName, 3);
-        let text9 = textCreate(373, 250, horTextClassName, 4);
-        let text10 = textCreate(410, 250, horTextClassName, 5);
-        let text11 = textCreate(240, 266, verTextClassName, -1);
-        let text12 = textCreate(240, 303, verTextClassName, -2);
-        let text13 = textCreate(240, 340, verTextClassName, -3);
-        let text14 = textCreate(240, 378, verTextClassName, -4);
-        let text15 = textCreate(240, 415, verTextClassName, -5);
-        let text16 = textCreate(240, 41, verTextClassName, 5);
-        let text17 = textCreate(240, 79, verTextClassName, 4);
-        let text18 = textCreate(240, 117, verTextClassName, 3);
-        let text19 = textCreate(240, 154, verTextClassName, 2);
-        let text20 = textCreate(240, 192, verTextClassName, 1);
+        let text = [];
+        text.push(textCreate(35, 250, horTextClassName, -5));
+        text.push(textCreate(73, 250, horTextClassName, -4));
+        text.push(textCreate(110, 250, horTextClassName, -3));
+        text.push(textCreate(148, 250, horTextClassName, -2));
+        text.push(textCreate(185, 250, horTextClassName, -1));
+        text.push(textCreate(260, 250, horTextClassName, 1));
+        text.push(textCreate(298, 250, horTextClassName, 2));
+        text.push(textCreate(335, 250, horTextClassName, 3));
+        text.push(textCreate(373, 250, horTextClassName, 4));
+        text.push(textCreate(410, 250, horTextClassName, 5));
+        text.push(textCreate(240, 266, verTextClassName, -1));
+        text.push(textCreate(240, 303, verTextClassName, -2));
+        text.push(textCreate(240, 340, verTextClassName, -3));
+        text.push(textCreate(240, 378, verTextClassName, -4));
+        text.push(textCreate(240, 415, verTextClassName, -5));
+        text.push(textCreate(240, 41, verTextClassName, 5));
+        text.push(textCreate(240, 79, verTextClassName, 4));
+        text.push(textCreate(240, 117, verTextClassName, 3));
+        text.push(textCreate(240, 154, verTextClassName, 2));
+        text.push(textCreate(240, 192, verTextClassName, 1));
 
-        let line1 = lineCreate(37.5, 37.5, 215, 235, horLineClassName);
-        let line2 = lineCreate(75, 75, 215, 235, horLineClassName);
-        let line3 = lineCreate(112.5, 112.5, 215, 235, horLineClassName);
-        let line4 = lineCreate(150, 150, 215, 235, horLineClassName);
-        let line5 = lineCreate(187.5, 187.5, 215, 235, horLineClassName);
-        let line6 = lineCreate(262.5, 262.5, 215, 235, horLineClassName);
-        let line7 = lineCreate(300, 300, 215, 235, horLineClassName);
-        let line8 = lineCreate(337.5, 337.5, 215, 235, horLineClassName);
-        let line9 = lineCreate(375, 375, 215, 235, horLineClassName);
-        let line10 = lineCreate(412.5, 412.5, 215, 235, horLineClassName);
-        let line11 = lineCreate(215, 235, 37.5, 37.5, horLineClassName);
-        let line12 = lineCreate(215, 235, 75, 75, horLineClassName);
-        let line13 = lineCreate(215, 235, 112.5, 112.5, horLineClassName);
-        let line14 = lineCreate(215, 235, 150, 150, horLineClassName);
-        let line15 = lineCreate(215, 235, 187.5, 187.5, horLineClassName);
-        let line16 = lineCreate(215, 235, 262.5, 262.5, horLineClassName);
-        let line17 = lineCreate(215, 235, 300, 300, horLineClassName);
-        let line18 = lineCreate(215, 235, 337.5, 337.5, horLineClassName);
-        let line19 = lineCreate(215, 235, 375, 375, horLineClassName);
-        let line20 = lineCreate(215, 235, 412.5, 412.5, horLineClassName);
+        let lines = [];
+        lines.push(lineCreate(37.5, 37.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(75, 75, 215, 235, horLineClassName));
+        lines.push(lineCreate(112.5, 112.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(150, 150, 215, 235, horLineClassName));
+        lines.push(lineCreate(187.5, 187.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(262.5, 262.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(300, 300, 215, 235, horLineClassName));
+        lines.push(lineCreate(337.5, 337.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(375, 375, 215, 235, horLineClassName));
+        lines.push(lineCreate(412.5, 412.5, 215, 235, horLineClassName));
+        lines.push(lineCreate(215, 235, 37.5, 37.5, horLineClassName));
+        lines.push(lineCreate(215, 235, 75, 75, horLineClassName));
+        lines.push(lineCreate(215, 235, 112.5, 112.5, horLineClassName));
+        lines.push(lineCreate(215, 235, 150, 150, horLineClassName));
+        lines.push(lineCreate(215, 235, 187.5, 187.5, horLineClassName));
+        lines.push(lineCreate(215, 235, 262.5, 262.5, horLineClassName));
+        lines.push(lineCreate(215, 235, 300, 300, horLineClassName));
+        lines.push(lineCreate(215, 235, 337.5, 337.5, horLineClassName));
+        lines.push(lineCreate(215, 235, 375, 375, horLineClassName));
+        lines.push(lineCreate(215, 235, 412.5, 412.5, horLineClassName));
 
-        svg.appendChild(text1);
-        svg.appendChild(text2);
-        svg.appendChild(text3);
-        svg.appendChild(text4);
-        svg.appendChild(text5);
-        svg.appendChild(text6);
-        svg.appendChild(text7);
-        svg.appendChild(text8);
-        svg.appendChild(text9);
-        svg.appendChild(text10);
-        svg.appendChild(text11);
-        svg.appendChild(text12);
-        svg.appendChild(text13);
-        svg.appendChild(text14);
-        svg.appendChild(text15);
-        svg.appendChild(text16);
-        svg.appendChild(text17);
-        svg.appendChild(text18);
-        svg.appendChild(text19);
-        svg.appendChild(text20);
+        for (let i = 0; i < text.length; i++) {
+            svg.appendChild(text[i]);
+        }
 
-        svg.appendChild(line1);
-        svg.appendChild(line2);
-        svg.appendChild(line3);
-        svg.appendChild(line4);
-        svg.appendChild(line5);
-        svg.appendChild(line6);
-        svg.appendChild(line7);
-        svg.appendChild(line8);
-        svg.appendChild(line9);
-        svg.appendChild(line10);
-        svg.appendChild(line11);
-        svg.appendChild(line12);
-        svg.appendChild(line13);
-        svg.appendChild(line14);
-        svg.appendChild(line15);
-        svg.appendChild(line16);
-        svg.appendChild(line17);
-        svg.appendChild(line18);
-        svg.appendChild(line19);
-        svg.appendChild(line20);
+        for (let i = 0; i < lines.length; i++) {
+            svg.appendChild(lines[i]);
+        }
     }
     else {
-        let text1 = textCreate(35, 250, horLineClassName, "-R");
-        let text2 = textCreate(129, 250, horLineClassName, "-R/2");
-        let text3 = textCreate(316.5, 250, horLineClassName, "R/2");
-        let text4 = textCreate(410, 250, horLineClassName, "R");
-        let text5 = textCreate(240, 415, verLineClassName, "-R");
-        let text6 = textCreate(240, 321.5, verLineClassName, "-R/2");
-        let text7 = textCreate(240, 135.5, verLineClassName, "R/2");
-        let text8 = textCreate(240, 41, verLineClassName, "R");
+        let text = [];
+        text.push(textCreate(35, 250, horLineClassName, "-R"));
+        text.push(textCreate(129, 250, horLineClassName, "-R/2"));
+        text.push(textCreate(316.5, 250, horLineClassName, "R/2"));
+        text.push(textCreate(410, 250, horLineClassName, "R"));
+        text.push(textCreate(240, 415, verLineClassName, "-R"));
+        text.push(textCreate(240, 321.5, verLineClassName, "-R/2"));
+        text.push(textCreate(240, 135.5, verLineClassName, "R/2"));
+        text.push(textCreate(240, 41, verLineClassName, "R"));
 
-        let line1 = lineCreate(215, 235, 414, 414, verLineClassName);
-        let line2 = lineCreate(215, 235, 330, 330, verLineClassName);
-        let line3 = lineCreate(215, 235, 135.5, 135.5, verLineClassName);
-        let line4 = lineCreate(215, 235, 38, 38, verLineClassName);
+        let lines = [];
+        lines.push(lineCreate(215, 235, 414, 414, verLineClassName));
+        lines.push(lineCreate(215, 235, 330, 330, verLineClassName));
+        lines.push(lineCreate(215, 235, 135.5, 135.5, verLineClassName));
+        lines.push(lineCreate(215, 235, 38, 38, verLineClassName));
+        lines.push(lineCreate(37, 37, 215, 235, horLineClassName));
+        lines.push(lineCreate(131, 131, 215, 235, horLineClassName));
+        lines.push(lineCreate(330, 330, 215, 235, horLineClassName));
+        lines.push(lineCreate(412, 412, 215, 235, horLineClassName));
 
-        let line5 = lineCreate(37, 37, 215, 235, horLineClassName);
-        let line6 = lineCreate(131, 131, 215, 235, horLineClassName);
-        let line7 = lineCreate(330, 330, 215, 235, horLineClassName);
-        let line8 = lineCreate(412, 412, 215, 235, horLineClassName);
+        for (let i = 0; i < text.length; i++) {
+            svg.appendChild(text[i]);
+        }
 
-        svg.appendChild(text1);
-        svg.appendChild(text2);
-        svg.appendChild(text3);
-        svg.appendChild(text4);
-        svg.appendChild(text5);
-        svg.appendChild(text6);
-        svg.appendChild(text7);
-        svg.appendChild(text8);
-        svg.appendChild(line1);
-        svg.appendChild(line2);
-        svg.appendChild(line3);
-        svg.appendChild(line4);
-        svg.appendChild(line5);
-        svg.appendChild(line6);
-        svg.appendChild(line7);
-        svg.appendChild(line8);
+        for (let i = 0; i < lines.length; i++) {
+            svg.appendChild(lines[i]);
+        }
     }
 
     document.getElementById("info").appendChild(svg);
 }
-
-svg_init("init");
-
 
 function redraw(input) {
     let selected = input.checkedRadio[0].offsetParent.innerText;
