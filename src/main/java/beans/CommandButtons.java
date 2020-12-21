@@ -2,6 +2,7 @@ package beans;
 
 import dbutils.CoordinatesDAO;
 import dbutils.CoordinatesEntity;
+import validator.Validator;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -20,22 +21,14 @@ public class CommandButtons {
         if (request.getSession().getAttribute("coordinatesList") == null)
             request.getSession().setAttribute("coordinatesList", new CoordinatesList());
 
-/*
-        if (request.getSession().getAttribute("xCommandButton") == null)
-            request.getSession().setAttribute("xCommandButton", new XCommandButton());
 
-*/
-
-
-        XCommandButton xCommandButton = (XCommandButton) request.getSession().getAttribute("xCommandButton");
-        YInputText yInputText = (YInputText) request.getSession().getAttribute("yInputText");
-        RRadioButton rRadioButton = (RRadioButton) request.getSession().getAttribute("rRadioButton");
+        DefaultForm defaultForm = (DefaultForm) request.getSession().getAttribute("defaultForm");
 
 
         CoordinatesEntity coordinates = new CoordinatesEntity();
-        coordinates.setX(xCommandButton.getX());
-        coordinates.setY(yInputText.getValue());
-        coordinates.setR(rRadioButton.getSelectedRadio());
+        coordinates.setX(defaultForm.getX());
+        coordinates.setY(defaultForm.getY());
+        coordinates.setR(defaultForm.getR());
 
         FacesContext fCtx = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) fCtx.getExternalContext().getSession(false);
@@ -44,7 +37,7 @@ public class CommandButtons {
 
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         coordinates.setDate(LocalTime.parse(LocalTime.now().format(timeFormatter)));
-        coordinates.setHit(false);                                                   // to do hit validator
+        coordinates.setHit(Validator.validate(coordinates));                                                   // to do hit validator
         coordinates.setExectime((System.nanoTime() - exec_start) / 1000);            // time in microseconds
 
         CoordinatesDAO coordinatesDAO = new CoordinatesDAO();

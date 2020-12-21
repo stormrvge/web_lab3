@@ -21,20 +21,8 @@
 
     <!-- -->
     <managed-bean>
-        <managed-bean-name>xCommandButton</managed-bean-name>
-        <managed-bean-class>beans.XCommandButton</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-
-    <managed-bean>
-        <managed-bean-name>yInputText</managed-bean-name>
-        <managed-bean-class>beans.YInputText</managed-bean-class>
-        <managed-bean-scope>session</managed-bean-scope>
-    </managed-bean>
-    
-    <managed-bean>
-        <managed-bean-name>rRadioButton</managed-bean-name>
-        <managed-bean-class>beans.RRadioButton</managed-bean-class>
+        <managed-bean-name>defaultForm</managed-bean-name>
+        <managed-bean-class>beans.DefaultForm</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 

@@ -36,90 +36,90 @@ function svg_init(value) {
         square = document.createElementNS(xmlns_svg, "rect");
         square.setAttribute("width", "38");
         square.setAttribute("height", "38");
-        square.setAttribute("fill", "red");
+        square.setAttribute("fill", "#f53858");
         square.setAttribute("x", "187");
         square.setAttribute("y", "187");
 
         triangle = document.createElementNS(xmlns_svg, "polygon");
         triangle.setAttribute("points", "205,225 225,225 225,264");
-        triangle.setAttribute("fill", "red");
+        triangle.setAttribute("fill", "#f53858");
 
         circle = document.createElementNS(xmlns_svg, "path");
         circle.setAttribute("d", "M225,226 v-13, -25 a40,40 0 0,0 -46, 26 z");
         circle.setAttribute("transform", "rotate(165, 220, 225)");
-        circle.setAttribute("fill", "red");
+        circle.setAttribute("fill", "#f53858");
     }
 
     if (value === "2") {
         square = document.createElementNS(xmlns_svg, "rect");
         square.setAttribute("width", "76");
         square.setAttribute("height", "76");
-        square.setAttribute("fill", "red");
+        square.setAttribute("fill", "#f53858");
         square.setAttribute("x", "149");
         square.setAttribute("y", "149");
 
         triangle = document.createElementNS(xmlns_svg, "polygon");
         triangle.setAttribute("points", "187,225 225,225 225,300.5");
-        triangle.setAttribute("fill", "red");
+        triangle.setAttribute("fill", "#f53858");
 
         circle = document.createElementNS(xmlns_svg, "path");
         circle.setAttribute("d", "M225,225 v-50, -25 a80,80 0 0,0 -85, 66 z");
         circle.setAttribute("transform", "rotate(173, 220, 225)");
-        circle.setAttribute("fill", "red");
+        circle.setAttribute("fill", "#f53858");
     }
 
     if (value === "3") {
         square = document.createElementNS(xmlns_svg, "rect");
         square.setAttribute("width", "112.5");
         square.setAttribute("height", "112.5");
-        square.setAttribute("fill", "red");
+        square.setAttribute("fill", "#f53858");
         square.setAttribute("x", "112");
         square.setAttribute("y", "112");
 
         triangle = document.createElementNS(xmlns_svg, "polygon");
         triangle.setAttribute("points", "168,225 225,225 225,337.5");
-        triangle.setAttribute("fill", "red");
+        triangle.setAttribute("fill", "#f53858");
 
         circle = document.createElementNS(xmlns_svg, "path");
         circle.setAttribute("d", "M225,225 v-87, -25 a120,120 0 0,0 -122, 102 z");
         circle.setAttribute("transform", "rotate(175, 220, 225)");
-        circle.setAttribute("fill", "red");
+        circle.setAttribute("fill", "#f53858");
     }
 
     if (value === "4") {
         square = document.createElementNS(xmlns_svg, "rect");
         square.setAttribute("width", "150");
         square.setAttribute("height", "150");
-        square.setAttribute("fill", "red");
+        square.setAttribute("fill", "#f53858");
         square.setAttribute("x", "75");
         square.setAttribute("y", "75");
 
         triangle = document.createElementNS(xmlns_svg, "polygon");
         triangle.setAttribute("points", "150,225 225,225 225,375");
-        triangle.setAttribute("fill", "red");
+        triangle.setAttribute("fill", "#f53858");
 
         circle = document.createElementNS(xmlns_svg, "path");
         circle.setAttribute("d", "M225,225 v-125, -25 a160,160 0 0,0 -160, 139 z");
         circle.setAttribute("transform", "rotate(176, 220, 225)");
-        circle.setAttribute("fill", "red");
+        circle.setAttribute("fill", "#f53858");
     }
 
     if (value === "5" || value === "init") {
         square = document.createElementNS(xmlns_svg, "rect");
         square.setAttribute("width", "188");
         square.setAttribute("height", "188");
-        square.setAttribute("fill", "red");
+        square.setAttribute("fill", "#f53858");
         square.setAttribute("x", "37");
         square.setAttribute("y", "37");
 
         triangle = document.createElementNS(xmlns_svg, "polygon");
         triangle.setAttribute("points", "131,225 225,225 225,415");
-        triangle.setAttribute("fill", "red");
+        triangle.setAttribute("fill", "#f53858");
 
         circle = document.createElementNS(xmlns_svg, "path");
         circle.setAttribute("d", "M225,225 v-160, -28 a180,170 0 0,0 -197, 180 z");
         circle.setAttribute("transform", "rotate(177.5, 220, 225)");
-        circle.setAttribute("fill", "red");
+        circle.setAttribute("fill", "#f53858");
     }
 
 
