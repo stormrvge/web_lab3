@@ -2,6 +2,7 @@ let isXActive = true;
 clearButtons();
 //document.getElementById("formId:yInput").value = null;
 
+
 function buttonColor(input) {
     isXActive = true;
     let buttons = document.getElementsByClassName("xButton");
@@ -11,6 +12,7 @@ function buttonColor(input) {
         if (buttons[i].className.includes(" activeButton"))
             buttons[i].className = buttons[i].className.replace(" activeButton", "");
     }
+
 
     input.className = input.className + " activeButton";
 }

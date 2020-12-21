@@ -1,6 +1,7 @@
 let xmlns_svg = "http://www.w3.org/2000/svg";
 const svg = document.createElementNS(xmlns_svg, "svg");
 
+
 let triangle = null;
 let circle = null;
 let square = null;
@@ -205,7 +206,8 @@ function svg_init(value) {
 }
 
 function redraw(input) {
-    let selected = input.checkedRadio[0].offsetParent.innerText;
+    let r_value = input.checkedRadio[0].offsetParent.innerText;
+
 
     try {
         svg.removeChild(circle);
@@ -213,7 +215,7 @@ function redraw(input) {
         svg.removeChild(triangle);
     } catch (DOMException) {}
 
-    svg_init(selected);
+    svg_init(r_value);
 }
 
 
@@ -239,4 +241,119 @@ function lineCreate(x1, x2, y1, y2, className) {
     line.setAttribute("class", className);
 
     return line;
+}
+
+
+
+/*                                  CLICK JAVASCRIPT FILE                                                */
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    getX() {
+        return this.x;
+    }
+
+    getY() {
+        return this.y;
+    }
+}
+
+function fromPixelsToPoints(x, y) {
+    let pointX = round((x - centerPosX) / pixel_step, 0.5);
+    let pointY = ((y - centerPosY) / -pixel_step);
+
+    return new Point(pointX, pointY);
+}
+
+// Canvas init
+
+
+const centerPosX = svg.getAttribute("height") / 2;
+const centerPosY = svg.getAttribute("width") / 2;
+
+let pixel_step;
+
+// Map sprite
+let spriteImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Bluedot.svg/1200px-Bluedot.svg.png";
+let redDotSprite = "https://upload.wikimedia.org/wikipedia/commons/0/0e/Basic_red_dot.png";
+let mapSprite = new Image();
+mapSprite.src = "img/areas.jpg";
+
+
+let mouseClicked = function (mouse) {
+    let r = 5;
+    //if (parseFloat(r_value) >= 1 && parseFloat(r_value) <= 5) {
+        pixel_step = 37.5;
+
+
+        let point = fromPixelsToPoints(mouse.offsetX, mouse.offsetY);
+        console.log(point.getX(), point.getY());
+
+        let mouseXPos = centerPosX + (point.getX() * pixel_step);
+        let mouseYPos = centerPosY - (point.getY() * pixel_step);
+
+        let marker = new Marker();
+        marker.XPos = mouseXPos - (marker.Width / 2);
+        marker.YPos = mouseYPos - marker.Height;
+        marker.pixel_step = pixel_step;
+        marker.XPoint = point.getX();
+        marker.YPoint = point.getY();
+
+
+        document.getElementById("hiddenForm:ajax_x").value = marker.XPoint;
+        document.getElementById("hiddenForm:ajax_y").value = marker.YPoint;
+        document.getElementById("hiddenForm:ajax_r").value = getR();
+
+        document.getElementById("hiddenForm:hidden_button").click();
+
+
+    setTimeout(function() {
+        let hits_column = $('.table_hit').toArray();
+        let last_el = hits_column.pop();
+        let answer = last_el.innerHTML;
+
+        let circle = document.createElementNS(xmlns_svg, "circle");
+        circle.setAttribute("cx", (marker.XPos + 2.5).toString());
+        circle.setAttribute("cy", (marker.YPos + 2.5).toString());
+        circle.setAttribute("r", "5");
+
+        if (answer === "true")
+            circle.setAttribute("style", "fill:green");
+        else if (answer === "false")
+            circle.setAttribute("style", "fill:red");
+
+        svg.appendChild(circle);
+    }, 200);
+}
+
+
+function getR() {
+    return PF('r_radio').getJQ().find(':checked').val() || "0";
+}
+
+svg.addEventListener("click", mouseClicked, false);
+
+
+function round(value, step) {
+    step || (step = 1.0);
+    let inv = 1.0 / step;
+    return Math.round(value * inv) / inv;
+}
+
+let Marker = function () {
+    this.Sprite = new Image();
+    this.Sprite.src = spriteImage;
+    this.Width = 6;
+    this.Height = 6;
+    this.XPos = 0;
+    this.YPos = 0;
+    this.pixel_step = 0;
+    this.XPoint = 0;
+    this.YPoint = 0;
+    this.hit = false;
+    this.r = 0;
 }

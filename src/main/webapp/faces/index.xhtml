@@ -21,12 +21,21 @@
     </p>
 
     <div class="info" id="info">
-        <!-- <object class="svg_area" type="image/svg+xml" data="../img/area.svg"/> -->
+         <h:form id="hiddenForm">
+            <h:inputHidden id="ajax_x" value="#{sessionScope['ajax_x']}" />
+            <h:inputHidden id="ajax_y" value="#{sessionScope['ajax_x']}" />
+            <h:inputHidden id="ajax_r" value="#{sessionScope['ajax_x']}" />
 
+
+
+            <h:commandButton id="hidden_button" type="submit" action="#{svgAjax.clicked}" style="display: none">
+                <f:ajax execute="formId" render="main_table"/>
+            </h:commandButton>
+        </h:form>
     </div>
 
     <div class="form">
-        <h:form id="formId">
+        <h:form id="formId" name="formId">
             <div class="x">
                 <p>X:</p>
                 <p:commandButton styleClass="xButton" value="-2.0" action="#{xCommandButton.setX(-2.0)}" onclick="buttonColor(this)"/>
@@ -42,6 +51,7 @@
 
             <div class="y">
                 <p>Y:</p>
+
                 <p:inputText id="yInput" value="#{yInputText.value}" validatorMessage="Wrong Y" required="true"
                              size="15" a:placeholder="Enter Y value">
                     <f:validateDoubleRange minimum="0" maximum="5"/> </p:inputText>
@@ -50,12 +60,13 @@
             <div class="r">
                 <p>R:</p>
                 <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
-                    <p:selectOneRadio id="r_radio" onclick="redraw(this);" value="#{rRadioButton.selectedRadio}" unselectable="false" required="true">
+                    <p:selectOneRadio widgetVar="r_radio" id="r_radio" onclick="redraw(this);" value="#{rRadioButton.selectedRadio}" unselectable="false" required="true">
                         <f:selectItem itemLabel="1" itemValue="1"/>
                         <f:selectItem itemLabel="2" itemValue="2"/>
                         <f:selectItem itemLabel="3" itemValue="3"/>
                         <f:selectItem itemLabel="4" itemValue="4"/>
                         <f:selectItem itemLabel="5" itemValue="5"/>
+
                     </p:selectOneRadio>
                 </h:panelGrid>
             </div>
@@ -70,6 +81,11 @@
         </h:form>
     </div>
 
+    <div class="nav">
+        <input type="button" value="Go to results" onclick="window.location.href='../faces/response.xhtml'"/>
+        <p:remoteCommand value="Clear table" action="#{}"/>
+    </div>
+
     <div class="table">
         <p:dataTable id="main_table" var="coordinate" value="#{coordinatesList.lastCoordinatesList}">
             <p:column headerText="X">
@@ -77,7 +93,9 @@
             </p:column>
 
             <p:column headerText="Y">
-                <h:outputText value="#{coordinate.y}" />
+                <h:outputText value="#{coordinate.y}">
+                    <f:convertNumber maxFractionDigits="1" locale="en-US"/>
+                </h:outputText>
             </p:column>
 
             <p:column headerText="R">
@@ -85,7 +103,7 @@
             </p:column>
 
             <p:column headerText="Hit">
-                <h:outputText value="false"/>
+                <h:outputText class="table_hit" value="#{coordinate.hit}"/>
             </p:column>
 
             <p:column headerText="Time">
@@ -94,9 +112,6 @@
         </p:dataTable>
     </div>
 
-    <div class="nav_to_result">
-        <input type="button" value="Go to results" onclick="window.location.href='../faces/response.xhtml'"/>
-    </div>
 
     <div class="validator_message">
         <h:message for="yInput"/>

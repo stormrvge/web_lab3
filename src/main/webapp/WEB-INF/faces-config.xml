@@ -49,4 +49,10 @@
         <managed-bean-class>beans.CommandButtons</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+
+    <managed-bean>
+        <managed-bean-name>svgAjax</managed-bean-name>
+        <managed-bean-class>beans.SVGAjax</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>
