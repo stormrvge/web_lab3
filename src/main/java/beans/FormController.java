@@ -11,7 +11,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class CommandButtons {
+public class FormController {
 
     public boolean submit() {
         long exec_start = System.nanoTime();
@@ -19,10 +19,10 @@ public class CommandButtons {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 
         if (request.getSession().getAttribute("coordinatesList") == null)
-            request.getSession().setAttribute("coordinatesList", new CoordinatesList());
+            request.getSession().setAttribute("coordinatesList", new TableData());
 
 
-        DefaultForm defaultForm = (DefaultForm) request.getSession().getAttribute("defaultForm");
+        DefaultFormBean defaultForm = (DefaultFormBean) request.getSession().getAttribute("defaultForm");
 
 
         CoordinatesEntity coordinates = new CoordinatesEntity();
@@ -44,7 +44,7 @@ public class CommandButtons {
         boolean status = coordinatesDAO.addCoordinates(coordinates);
 
         if (status) {
-            CoordinatesList coordinatesList = (CoordinatesList) request.getSession().getAttribute("coordinatesList");
+            TableData coordinatesList = (TableData) request.getSession().getAttribute("coordinatesList");
             coordinatesList.addToList(coordinates);
             return true;
         }  else return false;

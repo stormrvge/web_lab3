@@ -7,7 +7,7 @@
     <navigation-rule>
         <from-view-id>../faces/index.xhtml</from-view-id>
         <navigation-case>
-            <from-action>#{commandButtons.submit}</from-action>
+            <from-action>#{formController.submit}</from-action>
             <from-outcome>true</from-outcome>
             <to-view-id>../faces/response.xhtml</to-view-id>
             <redirect/>
@@ -22,25 +22,25 @@
     <!-- -->
     <managed-bean>
         <managed-bean-name>defaultForm</managed-bean-name>
-        <managed-bean-class>beans.DefaultForm</managed-bean-class>
+        <managed-bean-class>beans.DefaultFormBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <managed-bean-name>coordinatesList</managed-bean-name>
-        <managed-bean-class>beans.CoordinatesList</managed-bean-class>
+        <managed-bean-class>beans.TableData</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <managed-bean-name>commandButtons</managed-bean-name>
-        <managed-bean-class>beans.CommandButtons</managed-bean-class>
+        <managed-bean-class>beans.FormController</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 
     <managed-bean>
         <managed-bean-name>svgAjax</managed-bean-name>
-        <managed-bean-class>beans.SVGAjax</managed-bean-class>
+        <managed-bean-class>beans.SVGAjaxBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
 </faces-config>

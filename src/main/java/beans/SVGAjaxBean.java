@@ -4,16 +4,13 @@ import dbutils.CoordinatesDAO;
 import dbutils.CoordinatesEntity;
 import validator.Validator;
 
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class SVGAjax {
+public class SVGAjaxBean {
     private float x;
     private float y;
     private int r;
@@ -59,13 +56,11 @@ public class SVGAjax {
         HttpServletRequest request = (HttpServletRequest)FacesContext.getCurrentInstance().getExternalContext().getRequest();
 
         if (request.getSession().getAttribute("coordinatesList") == null)
-            request.getSession().setAttribute("coordinatesList", new CoordinatesList());
-
+            request.getSession().setAttribute("coordinatesList", new TableData());
 
         x = Float.parseFloat(request.getParameter("hiddenForm:ajax_x"));
         y = Float.parseFloat(request.getParameter("hiddenForm:ajax_y"));
         r = Integer.parseInt(request.getParameter("hiddenForm:ajax_r"));
-
 
         CoordinatesEntity coordinates = new CoordinatesEntity();
         coordinates.setX(x);
@@ -81,18 +76,16 @@ public class SVGAjax {
 
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         coordinates.setDate(LocalTime.parse(LocalTime.now().format(timeFormatter)));
-        coordinates.setHit(hit);                                                   // to do hit validator
-        coordinates.setExectime((System.nanoTime() - exec_start) / 1000);            // time in microseconds
+        coordinates.setHit(hit);
+        coordinates.setExectime((System.nanoTime() - exec_start) / 1000);
 
         CoordinatesDAO coordinatesDAO = new CoordinatesDAO();
         boolean status = coordinatesDAO.addCoordinates(coordinates);
 
         if (status) {
-            CoordinatesList coordinatesList = (CoordinatesList) request.getSession().getAttribute("coordinatesList");
+            TableData coordinatesList = (TableData) request.getSession().getAttribute("coordinatesList");
             coordinatesList.addToList(coordinates);
             return true;
         }  else return false;
     }
-
-
 }

@@ -9,7 +9,6 @@ import org.hibernate.cfg.Configuration;
 
 import javax.persistence.metamodel.EntityType;
 
-import java.util.Map;
 
 public class NewHibernateUtil {
     private static final SessionFactory ourSessionFactory;

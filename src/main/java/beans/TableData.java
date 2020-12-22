@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class CoordinatesList implements Serializable {
+public class TableData implements Serializable {
     private ArrayList<CoordinatesEntity> coordinateList = new ArrayList<>();
     private LinkedList<CoordinatesEntity> lastCoordinatesList = new LinkedList<>();
 
@@ -18,7 +18,6 @@ public class CoordinatesList implements Serializable {
         coordinateList = CoordinatesDAO.getSessionCoordinatesList();
         lastCoordinatesList = CoordinatesDAO.getRecentSessionCoordinatesList();
     }
-
 
     public void addToList(CoordinatesEntity coordinatesEntity) {
         coordinateList.add(coordinatesEntity);

@@ -1,9 +1,8 @@
 package beans;
 
-
 import javax.annotation.PostConstruct;
 
-public class DefaultForm {
+public class DefaultFormBean {
     public float getX() {
         return x;
     }

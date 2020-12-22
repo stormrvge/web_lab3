@@ -1,7 +1,5 @@
-let isXActive = true;
+let isXActive = false;
 clearButtons();
-//document.getElementById("formId:yInput").value = null;
-
 
 function buttonColor(input) {
     isXActive = true;
@@ -50,12 +48,33 @@ function clearButtons() {
 }
 
 function validateForm() {
+    let validatedX = false;
+    let validatedY = false;
+    let validatedR = false;
+    let y = document.getElementById("formId:yInput").value;
+    let r = getR();
+
     if (!isXActive) {
-        document.getElementsByClassName("x")[0].style.backgroundColor = "#ffa6b5";
-        return false;
+        document.getElementsByClassName("x")[0].style.boxShadow = "0px 5px 25px rgb(238 2 2)";
     } else if (isXActive) {
-        document.getElementsByClassName("x")[0].style.backgroundColor = "#f7f7f7";
-        return true;
+        document.getElementsByClassName("x")[0].style.boxShadow = "0px 0px 0px rgb(238 2 2)";
+        validatedX =  true;
     }
+
+    if (parseFloat(y) >= -5 && parseFloat(y) <= 5) {
+        document.getElementsByClassName("y")[0].style.boxShadow = "0px 0px 0px rgb(238 2 2)";
+        validatedY =  true;
+    } else {
+        document.getElementsByClassName("y")[0].style.boxShadow = "0px 5px 25px rgb(238 2 2)";
+    }
+
+    if (parseInt(r) >= 1 && parseInt(r) <= 5) {
+        document.getElementsByClassName("r")[0].style.boxShadow = "0px 0px 0px rgb(238 2 2)";
+        validatedR =  true;
+    } else {
+        document.getElementsByClassName("r")[0].style.boxShadow = "0px 5px 25px rgb(238 2 2)";
+    }
+
+    return validatedX && validatedY && validatedR;
 }
 

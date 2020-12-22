@@ -12,18 +12,17 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CoordinatesDAO {
-
     public boolean addCoordinates(CoordinatesEntity coordinates) {
-        Transaction transaction = null;
+        Transaction transaction;
         Session session = NewHibernateUtil.getSession().getSessionFactory().openSession();
+
         try {
             transaction = session.beginTransaction();
             session.save(coordinates);
             transaction.commit();
 
-            if (session.getTransaction().getStatus() == TransactionStatus.COMMITTED) {
+            if (session.getTransaction().getStatus() == TransactionStatus.COMMITTED)
                 return true;
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

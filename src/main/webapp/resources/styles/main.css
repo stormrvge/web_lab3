@@ -47,9 +47,11 @@ input {
 
 
 .x {
+    margin-top: 20px;
     margin-left: 40px;
     float: left;
     width: 173px;
+    height: 185px;
 }
 
 .x p {
@@ -69,19 +71,26 @@ input {
 }
 
 .y {
+    margin-top: 20px;
+    margin-left: 40px;
     float: left;
     text-align: center;
+    width: 200px;
 }
 
 .y input {
-    width: 190px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    width: 170px;
 }
 
 .r {
-
+    margin-top: 10px;
+    margin-left: 40px;
     font-size: 15px;
     float: left;
-    width: 220px;
+    width: 200px;
+    height: 90px;
 }
 
 .r p {
@@ -105,8 +114,10 @@ input[type=submit], input[type=reset] {
     width: 120px;
     height: 25px;
     border: 0;
+    float: left;
     border-radius: 5px;
-    margin-left: 70px;
+    margin-top: 25px;
+    margin-left: 80px;
     background-color: #f53858;
 }
 
@@ -152,7 +163,7 @@ input[type=button]:hover, input[type=reset]:hover, .link_button:hover {
     box-shadow: 1px 1px 4px rgb(160 160 160);
     float: right;
     width: 498px;
-    height: 230px;
+    height: 280px;
     margin-right: 1px;
 }
 
@@ -170,4 +181,22 @@ input[type=button]:hover, input[type=reset]:hover, .link_button:hover {
     height: 450px;
     margin-left: 50px;
     padding: 10px;
+}
+
+.x_1 {
+    margin-left: 9px;
+    margin-top: 10px;
+    height: 35px;
+}
+
+.x_2 {
+    margin-top: 5px;
+    margin-left: 9px;
+    height: 35px;
+}
+
+.x_3 {
+    margin-top: 5px;
+    margin-left: 9px;
+    height: 35px;
 }
